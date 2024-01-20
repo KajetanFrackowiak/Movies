@@ -9,10 +9,22 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collation = "reviews")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class Review {
     @Id
     private ObjectId id;
-    private String body;
+    private String title;
+    private String reviewer;
+    private Double rating;
+    private String reviewBody;
+
+    public Review(String title, String reviewer, Double rating, String reviewBody) {
+        this.title = title;
+        this.reviewer = reviewer;
+        this.rating = rating;
+        this.reviewBody = reviewBody;
+    }
+    public Review(String reviewBody) {
+        this.reviewBody = reviewBody;
+    }
 }
